@@ -49,6 +49,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>cinemasservice</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+
+  authservice:
+    image: authservice
+    build:
+      context: ./AuthService
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      # <port_na_twoim_systemie>:<port_docker>
+      - "8080:8080"
+
+  cinemasservice:
+    image: cinemasservice
+    build:
+      context: ./CinemasService
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      # <port_na_twoim_systemie>:<port_docker>
+      - "8200"
+
+  moviesservice:
+    image: moviesservice
+    build:
+      context: ./MoviesService
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      # <port_na_twoim_systemie>:<port_docker>
+      - "8300"
+
+  usersservice:
+    image: usersservice
+    build:
+      context: ./UsersService
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+    # <port_na_twoim_systemie>:<port_docker>
+    - "8400"
+
+  restapicinema:
+    image: restapicinema
+    build:
+      context: ./RestApiCinema
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      # <port_na_twoim_systemie>:<port_docker>
+      - "8000:8000"
+
+  restapiusers:
+    image: restapiusers
+    build:
+      context: ./RestApiUsers
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      # <port_na_twoim_systemie>:<port_docker>
+      - "8100"
+
+# zbudowac projekt
+# mvn clean install -DskipTests
+
+# z poziomu pliku docker-compose.yml piszesz
+# docker-compose up -d
+
+# logs
+# docker-compose logs -f
